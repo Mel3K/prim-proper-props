@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './App.css';
+import Header from '../Header/Header.jsx';
+import GuestList from '../GuestList/GuestList.jsx';
+import Footer from '../Footer/Footer';
+
+
 
 function App() {
   let [guestList, setGuestList] = useState([]);
@@ -53,10 +58,10 @@ function App() {
   console.log(newGuestMeal)
   return (
     <div className="App">
-      <header>
-        <h1>Prim Proper Props</h1>
-      </header>
-      <h2>Party Leader</h2>
+      <Header/>
+
+      {/* keep line 64 */}
+      <h2>Party Leader</h2> 
       {guestList[0] && <h3>{guestList[0].name}</h3>}
       <h2>Add a new guest</h2>
       <form onSubmit={handleSubmit}>
@@ -100,23 +105,7 @@ function App() {
         </div>
         <button type="submit">Add Guest</button>
       </form>
-      <h2>Guest List</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Kid's Meal</th>
-          </tr>
-        </thead>
-        <tbody>
-          {guestList.map(guest => (
-            <tr key={guest.id}>
-              <td>{guest.name}</td>
-              <td>{String(guest.kidsMeal)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+     
       <h2>Dinner Supplies</h2>
       <div>
         Spoons: {guestList.length * 2}
@@ -127,10 +116,8 @@ function App() {
       <div>
         Knives: {guestList.length * 2}
       </div>
-      <footer>
-        <h3>Have fun!</h3>
-        <p>Don't forget to mind your Ps and Qs!</p>
-      </footer>
+    
+      <Footer/>
     </div>
   );
 }
