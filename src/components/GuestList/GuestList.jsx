@@ -1,3 +1,4 @@
+import SilverWare from "../SilverWare/SilverWare";
 
 
 function GuestList (props) {
@@ -14,10 +15,9 @@ function GuestList (props) {
   </thead>
   <tbody>
     {GuestList.map(guest => (
-      <tr key={guest.id}>
-        <td>{guest.name}</td>
-        <td>{String(guest.kidsMeal)}</td>
-      </tr>
+    <SilverWare key={guest.id}
+    guest={guest}
+    />
     ))}
   </tbody>
 </table>

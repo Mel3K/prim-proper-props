@@ -30,7 +30,9 @@ function App() {
 
 
   const addGuest = () => {
-    axios.post('/api/guests', { name: newGuestName, kidsMeal: newGuestMeal })
+
+    axios.post('/api/guests', 
+      { name: newGuestName, kidsMeal: newGuestMeal })
       .then(response => {
         // clear inputs
         setNewGuestName('');
